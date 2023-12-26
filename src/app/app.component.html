@@ -1,19 +1,15 @@
 <div>
   <nav>
-      <table>
-        <tr>
-          <td  *ngFor="let action of actions">
-              <button 
-                (click)="setActionCourante(action)" 
-                [style.backgroundColor] = "action==actionCourante?'yellow':'red'"
-                routerLink="{{action.route}}">
-                {{action.titre}}
-              </button>
-          </td>
-        </tr>
-      </table>
+    <ul>
+      <li *ngFor="let action of actions">
+        <button
+          (click)="setActionCourante(action)"
+          [class.active]="action === actionCourante"
+          routerLink="{{action.route}}">
+          {{action.titre}}
+        </button>
+      </li>
+    </ul>
   </nav>
 </div>
-<router-outlet>
-
-</router-outlet> 
+<router-outlet></router-outlet>
